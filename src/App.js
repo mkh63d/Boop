@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import characterImage from './assets/boop.png';
 
-function App() {
+const App = () => {
+  const [message, setMessage] = useState('Hello! How can I help you today?');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+
       </header>
+      <div className="character-container">
+        <img src={characterImage} alt="Character" className="character" />
+      </div>
+      <div className="chat-bubble">
+        {message}
+      </div>
+      <div className="chat-input">
+        <input
+          type="text" 
+          className="input-text"
+          placeholder="Type a message..."
+          onChange={(e) => setMessage(e.target.value)}
+        />
+      </div>
     </div>
   );
 }
