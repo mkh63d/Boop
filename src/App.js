@@ -3,7 +3,22 @@ import './App.css';
 import characterImage from './assets/boop.png';
 
 const App = () => {
-  const [message, setMessage] = useState('Hello! How can I help you today?');
+  var i = 0;
+  const responsesScript = [
+    'Cześć! Jak mogę Ci dzisiaj pomóc?',
+    'Artykuł? Jasne, ten jest bardzo dobry: https://www.researchgate.net/publication/6576120_Lung_Cancer_Diagnosis_and_Management',
+    'Mam dużo ciekawostek. Na przykład wiedziałeś, że nowotwór płuca jest drugim co do częstości występowania nowotworem w Polsce?',
+    'Hej! Piłeś już dzisiaj wodę? Pamiętaj to ważne!'];
+  let message = useState('Cześć! Jak mogę Ci dzisiaj pomóc?');
+  function setMessage (response) {
+    if (i < responsesScript.length - 1) {
+      i++;
+      message = responsesScript[i];
+    } else {
+      i = 0;
+    }
+    message = response;
+  };
 
   return (
     <div className="App">
@@ -21,7 +36,7 @@ const App = () => {
           type="text" 
           className="input-text"
           placeholder="Type a message..."
-          onChange={(e) => setMessage(e.target.value)}
+          onChange={(e) => setMessage(responsesScript[i])}
         />
       </div>
     </div>

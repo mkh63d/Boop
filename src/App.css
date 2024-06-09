@@ -19,23 +19,29 @@
 }
 
 .character-container {
-  position: relative;
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  justify-content: center;
+  top: 55%;
 }
 
 .character {
-  width: 50%;
+  width: 100%;
+  scale: 1.6;
   height: auto;
+  transform: translateY(-50%);
 }
 
 .chat-bubble {
   position: absolute;
   top: 15%;
   transform: translateY(-50%); 
-  right: 8%; 
-  width: 20%;
+  right: 5%; 
+  width: 50%;
+  scale: 1.5;
   padding: 10px;
   font-size: 14px;
   text-align: center;
@@ -45,6 +51,7 @@
   box-shadow:  28px 28px 71px #6e39e9,
              -28px -28px 71px #480fca;
   color: white;
+  max-width: 30%;
 }
 
 
@@ -60,9 +67,12 @@
 }
 
 .input-text {
-  position: relative;
-  width: 40%;
+  position: absolute;
+  width: 70%;
+  bottom: 15%;
   height: 5rem;
+  right: 50%;
+  transform: translate(50%);
   border: none;
   border-radius: 3rem; 
   cursor: pointer;
@@ -76,7 +86,7 @@
   transition: all 0.3s;
   outline: none;
   padding-left: 1.5rem;
-    /*filter: blur(30px);*/
+    
 }
 
 .input-text::placeholder {
